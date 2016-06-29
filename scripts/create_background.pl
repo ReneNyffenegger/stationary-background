@@ -47,13 +47,14 @@ system('inkscape -f ..\input\2551x3579_additional-text_border-5mm.svg -e ' . $fi
 #
 # 1) 5mm Border
 if (! $additional_text_has_changed) {
-system ('convert ' . $filename_background_2551x3579 . ' -region 2362x3389+94+94  -alpha transparent ..\temp\background-border-excess.png') and die;
+  # Use the *excess* files to check if the cut borders would contain some graphics.
+  system ('convert ' . $filename_background_2551x3579 . ' -region 2362x3389+94+94  -alpha transparent ..\temp\background-border-excess.png') and die;
 }
 system ('convert ' . $filename_background_2551x3579 . ' -crop   2362x3389+94+94!                    ..\out\background-border.png') and die;
 
 # 2) A4
 if (! $additional_text_has_changed) {
-system ('convert ' . $filename_background_2551x3579 . ' -region 2480x3507+35+35  -alpha transparent ..\temp\background-a4-excess.png') and die;
+  system ('convert ' . $filename_background_2551x3579 . ' -region 2480x3507+35+35  -alpha transparent ..\temp\background-a4-excess.png') and die;
 }
 system ('convert ' . $filename_background_2551x3579 . ' -crop   2480x3507+35+35!                    ..\out\background-a4.png') and die;
 
